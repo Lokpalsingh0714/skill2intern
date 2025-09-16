@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enter Your Name</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif;}
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #6e8efb, #a777e3);
+        overflow: hidden;
+    }
+
+    .container {
+        text-align: center;
+        background: rgba(0,0,0,0.25);
+        padding:80px 120px;
+        border-radius: 55px;
+        backdrop-filter: blur(15px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        width: 600px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    h1 {
+        color: #fff;
+        margin-bottom: 40px;
+        font-size: 2rem;
+        letter-spacing: 1px;
+        animation: fadeInDown 1s ease forwards;
+    }
+
+    @keyframes fadeInDown {
+        from {opacity: 0; transform: translateY(-40px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+
+    input[type="text"] {
+        padding: 15px 20px;
+        border-radius: 50px;
+        border: none;
+        outline: none;
+        width: 100%;
+        font-size: 1.1rem;
+        transition: all 0.4s ease;
+        background: rgba(255,255,255,0.15);
+        color: #fff;
+        text-align: center;
+    }
+
+    input[type="text"]::placeholder {
+        color: #ddd;
+    }
+
+    input[type="text"]:focus {
+        width: 110%;
+        background: rgba(255,255,255,0.25);
+        box-shadow: 0 0 20px rgba(255,255,255,0.6);
+    }
+
+    .btn {
+        display: inline-block;
+        margin-top: 25px;
+        padding: 12px 35px;
+        border-radius: 50px;
+        border: none;
+        background: #fff;
+        color: #6e8efb;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+        background: #6e8efb;
+        color: #fff;
+        transform: scale(1.05);
+    }
+
+    /* Floating particles effect */
+    .particle {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.2);
+        animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+        0% {transform: translateY(0px);}
+        50% {transform: translateY(-80px);}
+        100% {transform: translateY(0px);}
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Enter Your Name</h1>
+        <input type="text" id="username" placeholder="Your Name";>        
+        <br>
+        <button class="btn" onclick="saveName()">Submit</button>
+        <!-- Particles -->
+        <div class="particle" style="width:10px; height:10px; top:10%; left:20%; animation-delay: 0s;"></div>
+        <div class="particle" style="width:15px; height:15px; top:30%; left:80%; animation-delay: 2s;"></div>
+        <div class="particle" style="width:8px; height:8px; top:70%; left:50%; animation-delay: 1s;"></div>
+        <div class="particle" style="width:12px; height:12px; top:60%; left:30%; animation-delay: 3s;"></div>
+    </div>
+    <script>
+function saveName() {
+    let name = document.getElementById("username").value;
+    if(name.trim() !== "") {
+        localStorage.setItem("username", name);   // naam save karo
+        window.location.href = "3page.html";    // next page pe bhejo
+    } else {
+        alert("Please enter your name!");
+    }
+}
+</script>
+</body>
+</html> 
